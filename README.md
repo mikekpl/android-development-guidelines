@@ -1,7 +1,7 @@
-Android Coding Standards
-========================
+Android Development Guidelines
+==============================
 
-This is a quick reference for our set coding standards for Android Development (Mobile / Native Java)
+Just a quick reference for android development that covers Java / Kotlin. I am excluding Xamarin, React Native, Flutter since complex solutions from them would still require developers to code in Java / Kotlin or even Android XML.
 
 Field Naming Convention
 -----------------------
@@ -11,6 +11,7 @@ Field Naming Convention
 * Other fields start with a lower case letter.
 * Public static final fields (constants) are ALL_CAPS_WITH_UNDERSCORES.
 
+Java:
 ```java
 public class MyClass {
     public static final int SOME_CONSTANT = 42;
@@ -21,6 +22,16 @@ public class MyClass {
     private TextView tvText;
     protected int mProtected;
 }
+```
+
+Kotlin:
+```
+const val SOME_CONSTANT = 42;
+var publicField;
+var sSingleton: MyClass;
+private var mPackagePrivate;
+private var tvText: TextView;
+protected var mProtected;
 ```
 
 Standard Brace Style
@@ -128,7 +139,7 @@ Under the HTTP Package we can have these:
 
 
 ### Classes
-Class names are written in [UpperCamelCase](http://en.wikipedia.org/wiki/CamelCase).
+Class names are written in [PascalCase](http://wiki.c2.com/?PascalCase).
 
 For classes that extend an Android component, the name of the class should end with the name of the component; for example: `SignInActivity`, `SignInFragment`, `ImageUploaderService`, `ChangePasswordDialog`.
 
@@ -328,9 +339,9 @@ This is __bad__ :
 </TextView>
 ```
 
-### Layout XML ID Naming / Java Class Widget Declaration Variable
+### Layout XML ID Naming / Class Widget Declaration Variable
 
-Always take the acronym for the view for example TextView = tv and make it lower camel case with the name.
+Always take the acronym for the view for example TextView = tv and make it lower camel case with the name. It will be more efficient especially if you will be using Kotlin Synthetic Properties (View Binding), this was introduced in Kotlin Android Extensions.
 
 | Element          | Prefix    | Example           |
 | ---------------- | --------- | ----------------- |
@@ -356,6 +367,15 @@ String names start with a prefix that identifies the section they belong to. For
 | `info_`              | A regular information message         |
 | `title_`             | A title, i.e. a dialog title          |
 | `action_`            | An action such as "Save" or "Create"  |
+
+
+Android App Bundles
+-------------------
+
+If your APK size is too large, there is always a way! App Bundles was recently introduced in 2018 and will help developers optimize the APK size to what they actually need https://developer.android.com/guide/app-bundle/ 
+
+For android applications using C++ Native files, there is also ABI Management https://developer.android.com/ndk/guides/abis to choose which architecture you would want to support (meaning less files).
+
 
 Git Ignore
 ----------
@@ -412,132 +432,79 @@ This is the base gitignore file for android. These files are the ones to be igno
 ```
 
 
-List of Recommended Libraries / Third Party
--------------------------------------------
+Android Development Tools / Architecture References
+---------------------------------------------------
 
-#### [Android Support Library](https://developer.android.com/topic/libraries/support-library/features.html)
-Features from layout, to supporting compatibilities up to designs and widgets.
+[Android Jetpack](https://developer.android.com/jetpack/)
+Features from layout, to supporting compatibilities up to designs, widgets & architecture
 
-#### [Retrofit](http://square.github.io/retrofit/)
+[Uber RIBS](https://github.com/uber/RIBs)
+Architecture used across Uber's applications
 
-```xml
-compile 'com.squareup.retrofit2:retrofit:2.0.2'
-```
-A type-safe HTTP client for Android and Java.
+[Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html)
+Kotlin android extensions that makes developers lives easier
 
-#### [OkHTTP](http://square.github.io/okhttp/)
+[Kotlin Coroutines](https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html)
+Asynchronous Programming
 
-```xml
-compile 'com.squareup.okhttp3:okhttp:3.3.1'
-```
-An HTTP & HTTP/2 client for Android and Java applications.
+[Awesome Kotlin](https://github.com/KotlinBy/awesome-kotlin)
+List of Kotlin libraries that are available to use
 
-#### [Picasso](http://square.github.io/picasso/)
+[Android Arsenal](https://android-arsenal.com)
+Wide range of libraries and tools for android development
 
-```xml
-compile 'com.squareup.picasso:picasso:2.5.2'
-```
-A powerful image downloading and caching library for Android.
+[Jitpack.io](https://jitpack.io/docs/ANDROID/)
+Publishing your own android library
 
-#### [Glide](https://github.com/bumptech/glide/)
+[Firebase](https://firebase.google.com/)
+There is always alot to look out for w/ Firebase, from FCM (Push Notifications) up to testing (Firebase Test Lab) they also have real time database, crash tracking (crashlytics), analytics tracking, vision and many more...
 
-```xml
-compile 'com.github.bumptech.glide:glide:3.7.0'
-```
-An image loading and caching library for Android focused on smooth scrolling.
+[In App Updates API](https://android-developers.googleblog.com/2018/11/unfolding-right-now-at-androiddevsummit.html)
+This is still on early access as of now (11-12-2018), you can check it back sometime in the future if its on the stable version, it looks very promising and could help improve application support
 
-#### [Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader/)
+#### Device Previews / Helpers
 
-Powerful and flexible library for loading, caching and displaying images on Android.
+I no longer recommend emulators since there are already tons of them available online, also in my opinion testing on real devices with different specifications are much better.
 
-#### [Otto](http://square.github.io/otto/)
+[Vysor](https://vysor.io)
 
-```xml
-compile 'com.squareup:otto:1.3.8'
-```
-An enhanced event bus with emphasis on Android support.
+[scrcpy](https://github.com/Genymobile/scrcpy)
 
-#### [Event Bus](https://github.com/greenrobot/EventBus/)
+#### Mobile CI / CD
 
-```xml
-compile 'org.greenrobot:eventbus:3.0.0'
-```
-Android optimized event bus that simplifies communication between Activities, Fragments, Threads, Services, etc. Less code, better quality.
+These are just some examples, for friendly CI / CD for mobile development. There are still tons of platforms available online using Jenkins, Bitbucket Pipelines, Gitlab Pipelines, CircleCI, Travis etc...
 
-#### [Flurry Analytics](https://developer.yahoo.com/flurry/docs/analytics/gettingstarted/android/)
+[Microsoft App Center](https://appcenter.ms/)
 
-```xml
-compile 'com.flurry.android:analytics:6.3.1'
-```
-Gain deep insight into your customer’s behavior very quickly and with little effort using Flurry’s Analytics service.
+[TestFairy](https://www.testfairy.com/)
 
-#### [Espresso](https://developer.android.com/training/testing/ui-testing/espresso-testing.html/)
+[Firebase Test Lab](https://firebase.google.com/docs/test-lab/)
 
-```xml
-dependencies {
-    ...
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
-}
-```
-Testing user interactions within a single app helps to ensure that users do not encounter unexpected results or have a poor experience when interacting with your app. You should get into the habit of creating user interface (UI) tests if you need to verify that the UI of your app is functioning correctly.
+#### Debugging Tools
 
-#### [Robolectric](http://robolectric.org/)
+[Bugsnag](https://www.bugsnag.com/)
 
-Handles inflation of views, resource loading, and lots of other stuff that's implemented in native C code on Android devices. This allows tests to do most things you could do on a real device. It's easy to provide our own implementation for specific SDK methods too, so you could simulate error conditions or real-world sensor behavior.
+[Instabug](https://instabug.com/)
 
-#### [RxJava](https://github.com/ReactiveX/RxJava/)
+[Bugsee](https://www.bugsee.com/)
 
-A library for composing asynchronous and event-based programs using observable sequences for the Java VM.
+[Chuck](https://github.com/jgilfelt/chuck)
 
-#### [Retrolambda](https://github.com/orfjackal/retrolambda/)
+[Timber](https://github.com/JakeWharton/timber)
 
-Backport of Java 8's lambda expressions to Java 7, 6 and 5.
+[LeakCanary](https://github.com/square/leakcanary)
 
-Other Sources
--------------
-
-#### General Sources
-
-[Android Arsenal](https://android-arsenal.com/)
-
-[Code Path](https://github.com/codepath/android_guides/wiki/Must-Have-Libraries/)
-
-[Android Libs](https://www.android-libs.com/)'
-
-[Coursera Android](https://github.com/aporter/coursera-android/)
-
-[Zserge Blog](http://zserge.com/blog.html/)
-
-#### UI / UX
-
-[Wasabeef Awesome Android UI](https://github.com/wasabeef/awesome-android-ui/)
-
-[Snowdream Awesome Android](https://github.com/snowdream/awesome-android/)
-
-[Code For Android](https://codeforandroid.wordpress.com/2015/02/09/android-sample-code/)
-
-[Mockable.io](https://www.mockable.io/)
-
-[InvisionApp](https://www.invisionapp.com/)
-
-[Json Server](https://github.com/typicode/json-server/)
-
-[Jorge Castillo Prz Awesome Android UI](https://github.com/jorgecastilloprz/awesome-android-ui/)
-
-[Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/)
-
-[Device Art Generator](https://developer.android.com/distribute/tools/promote/device-art.html/)
-
-#### Proguard
+#### Obuscation
 
 [Android Common Proguard Snippets](https://github.com/krschultz/android-proguard-snippets/)
+Some proguard snippets that could help if you have obfuscation on
 
-#### Emulators
-
-[Genymotion](https://www.genymotion.com/)
-
-[Bluestacks](http://www.bluestacks.com/)
+[R8](https://r8.googlesource.com/r8/)
+Is quite a new comer, interesting to see how this develops for android development
 
 #### Decompiler
 
 [JADX](https://github.com/skylot/jadx/)
+If you want to play around with APKs and Java files to see their source code, this is the tool for you
+
+**These are just some tool suggestions, if you have more to add or recommened in the content, feel free to do a pull request in this ReadMe file :)**
