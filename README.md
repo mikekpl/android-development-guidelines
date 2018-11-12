@@ -435,32 +435,23 @@ This is the base gitignore file for android. These files are the ones to be igno
 Android Development Tools / Architecture References
 ---------------------------------------------------
 
-[Android Jetpack](https://developer.android.com/jetpack/)
-Features from layout, to supporting compatibilities up to designs, widgets & architecture
+[Android Jetpack](https://developer.android.com/jetpack/) - Features from layout, to supporting compatibilities up to designs, widgets & architecture
 
-[Uber RIBS](https://github.com/uber/RIBs)
-Architecture used across Uber's applications
+[Uber RIBS](https://github.com/uber/RIBs) - Architecture used across Uber's applications
 
-[Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html)
-Kotlin android extensions that makes developers lives easier
+[Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html) - Kotlin android extensions that makes developers lives easier
 
-[Kotlin Coroutines](https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html)
-Asynchronous Programming
+[Kotlin Coroutines](https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html) - Asynchronous Programming
 
-[Awesome Kotlin](https://github.com/KotlinBy/awesome-kotlin)
-List of Kotlin libraries that are available to use
+[Awesome Kotlin](https://github.com/KotlinBy/awesome-kotlin) - List of Kotlin libraries that are available to use
 
-[Android Arsenal](https://android-arsenal.com)
-Wide range of libraries and tools for android development
+[Android Arsenal](https://android-arsenal.com) - Wide range of libraries and tools for android development
 
-[Jitpack.io](https://jitpack.io/docs/ANDROID/)
-Publishing your own android library
+[Jitpack.io](https://jitpack.io/docs/ANDROID/) - Publishing your own android library
 
-[Firebase](https://firebase.google.com/)
-There is always alot to look out for w/ Firebase, from FCM (Push Notifications) up to testing (Firebase Test Lab) they also have real time database, crash tracking (crashlytics), analytics tracking, vision and many more...
+[Firebase](https://firebase.google.com/) - There is always alot to look out for w/ Firebase, from FCM (Push Notifications) up to testing (Firebase Test Lab) they also have real time database, crash tracking (crashlytics), analytics tracking, vision and many more...
 
-[In App Updates API](https://android-developers.googleblog.com/2018/11/unfolding-right-now-at-androiddevsummit.html)
-This is still on early access as of now (11-12-2018), you can check it back sometime in the future if its on the stable version, it looks very promising and could help improve application support
+[In App Updates API](https://android-developers.googleblog.com/2018/11/unfolding-right-now-at-androiddevsummit.html) - This is still on early access as of now (11-12-2018), you can check it back sometime in the future if its on the stable version, it looks very promising and could help improve application support
 
 #### Device Previews / Helpers
 
@@ -482,6 +473,10 @@ These are just some examples, for friendly CI / CD for mobile development. There
 
 #### Debugging Tools
 
+Again there are lots of resources for this one online, I'll just leave some here :p
+
+[Firebase Crashlytics](https://firebase.google.com/docs/crashlytics/)
+
 [Bugsnag](https://www.bugsnag.com/)
 
 [Instabug](https://instabug.com/)
@@ -496,15 +491,15 @@ These are just some examples, for friendly CI / CD for mobile development. There
 
 #### Obuscation
 
-[Android Common Proguard Snippets](https://github.com/krschultz/android-proguard-snippets/)
-Some proguard snippets that could help if you have obfuscation on
+[Android Common Proguard Snippets](https://github.com/krschultz/android-proguard-snippets/) - Some proguard snippets that could help if you have obfuscation on
 
-[R8](https://r8.googlesource.com/r8/)
-Is quite a new comer, interesting to see how this develops for android development
+[R8](https://r8.googlesource.com/r8/) - Is quite a new comer, interesting to see how this develops for android development
 
 #### Decompiler
 
-[JADX](https://github.com/skylot/jadx/)
-If you want to play around with APKs and Java files to see their source code, this is the tool for you
+[JADX](https://github.com/skylot/jadx/) - If you want to play around with APKs and Java files to see their source code, this is the tool for you
 
-**These are just some tool suggestions, if you have more to add or recommened in the content, feel free to do a pull request in this ReadMe file :)**
+Contributing
+------------
+
+These are just some tool suggestions, if you have more to add or recommened in the content, feel free to do a pull request in this ReadMe file :)
